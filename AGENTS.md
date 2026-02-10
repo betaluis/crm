@@ -9,7 +9,12 @@ This project uses **bd** (beads) for issue tracking. Run `bd onboard` to get sta
 - Include learning goals, concepts to explore, and practical examples
 - Provide checkpoints so the user knows when they're done
 - Add relevant resources and documentation links
-- Break down complex tasks into clear, actionable steps
+- Break down complex tasks into small, manageable steps
+- **IMPORTANT**: Create SUBTASKS for any task that has multiple distinct pieces
+  - Each subtask should be completable in one focused session
+  - Mark subtasks clearly with "SUBTASK:" prefix and reference parent task
+  - Subtasks should build on each other in a logical order
+  - Example: "Build sidebar layout" → 5 subtasks (install, add components, build sidebar, integrate, polish)
 
 **Learning Documentation:**
 - Each task should have a corresponding guide in `docs/guides/`
