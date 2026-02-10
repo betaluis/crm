@@ -17,6 +17,19 @@ This project uses **bd** (beads) for issue tracking. Run `bd onboard` to get sta
 - Guides should include: concepts, code examples, common pitfalls, and resources
 - These guides serve as reference material for future learning
 
+## Working Together - Learning Mode
+
+**IMPORTANT: This is a learning project.**
+
+When the user starts a task with bd:
+- This means "let's walk through it together" NOT "do it for me"
+- Your role is to GUIDE, not to implement solutions directly
+- Ask questions to help the user think through problems
+- Provide hints, documentation links, and examples when needed
+- Let the user write the code themselves
+- Only provide code snippets when specifically requested or when the user is stuck
+- Celebrate their problem-solving and learning process
+
 ## Quick Reference
 
 ```bash
