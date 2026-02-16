@@ -1,57 +1,72 @@
 import {
-    Sidebar,
-    SidebarContent,
-    SidebarFooter,
-    SidebarGroup,
-    SidebarHeader,
-    SidebarMenu,
-    SidebarMenuButton,
-    SidebarMenuItem
-} from "@/components/ui/sidebar"
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+} from "@/components/ui/sidebar";
+import { LayoutDashboard, Building2, Users } from "lucide-react";
+import Link from "next/link";
+
+const iconMap = {
+  LayoutDashboard,
+  Building2,
+  Users,
+};
 
 const data = [
-    {
-        title: "menu-item-1",
-        url: "https://menu-item-1.com",
-    },
-    {
-        title: "menu-item-2",
-        url: "https://menu-item-2.com",
-    },
-    {
-        title: "menu-item-3",
-        url: "https://menu-item-3.com",
-    },
-]
+  {
+    title: "Dashboard",
+    url: "/dashboard",
+    icon: "LayoutDashboard",
+  },
+  {
+    title: "Companies",
+    url: "/companies",
+    icon: "Building2",
+  },
+  {
+    title: "Contacts",
+    url: "/contacts",
+    icon: "Users",
+  },
+];
 
 export default function AppSidebar() {
-    return (
-        <Sidebar variant="floating">
-            <SidebarHeader>
-                <div className="font-bold text-center py-3">CReeM Pro</div>
-            </SidebarHeader>
-            <SidebarContent>
-                <SidebarMenu>
-                    {data.map(({ title, url }) => (
-                        <SidebarMenuItem key={title} className="hover:bg-sidebar-border">
-                            <SidebarMenuButton className="hover:bg-transparent hover:text-sidebar-foreground">
-                                <a href={url}>
-                                    {title}
-                                </a>
-                            </SidebarMenuButton>
-                        </SidebarMenuItem>
-                    ))}
-                </SidebarMenu>
-            </SidebarContent>
-            <SidebarFooter >
-                <SidebarMenu>
-                    <SidebarMenuItem>
-                        <SidebarMenuButton>
-                            Username
-                        </SidebarMenuButton>
-                    </SidebarMenuItem>
-                </SidebarMenu>
-            </SidebarFooter>
-        </Sidebar>
-    )
+  return (
+    <Sidebar variant="floating">
+      <SidebarHeader>
+        <div className="py-3 text-center font-bold">CReeMe Pro</div>
+      </SidebarHeader>
+      <SidebarContent>
+        <SidebarMenu>
+          {data.map(({ title, url, icon }) => {
+            const Icon = iconMap[icon as keyof typeof iconMap];
+            return (
+              <SidebarMenuItem key={title} className="">
+                <SidebarMenuButton
+                  asChild
+                  className="hover:bg-sidebar-border hover:text-sidebar-foreground cursor-pointer rounded-none"
+                >
+                  <Link href={url} className="flex gap-3">
+                    {Icon && <Icon className="h-4 w-4" />}
+                    {title}
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            );
+          })}
+        </SidebarMenu>
+      </SidebarContent>
+      <SidebarFooter>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton>Username</SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarFooter>
+    </Sidebar>
+  );
 }
